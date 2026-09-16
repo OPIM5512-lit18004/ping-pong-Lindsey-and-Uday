@@ -23,6 +23,7 @@ model = MLPRegressor(
     hidden_layer_sizes=(64, 32),
     activation="relu",
     solver="adam",
+    early_stopping=True,
     max_iter=500,
     random_state=42
 )
@@ -42,7 +43,7 @@ plt.plot([y_train.min(), y_train.max()], [y_train.min(), y_train.max()], 'r--')
 plt.xlabel("Actual (train)")
 plt.ylabel("Predicted (train)")
 plt.title("Train: Actual vs Predicted Median House Value")
-plt.savefig("figures/train_predictions.png", dpi=150, bbox_inches="tight")
+plt.savefig("figures/train_actual_vs_pred.png", dpi=150, bbox_inches="tight")
 plt.close()
 
 # 6. Plot: actual vs predicted (test)
@@ -52,7 +53,7 @@ plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--')
 plt.xlabel("Actual (test)")
 plt.ylabel("Predicted (test)")
 plt.title("Test: Actual vs Predicted Median House Value")
-plt.savefig("figures/test_predictions.png", dpi=150, bbox_inches="tight")
+plt.savefig("figures/test_actual_vs_pred.png", dpi=150, bbox_inches="tight")
 plt.close()
 
-print("Saved train_predictions.png and test_predictions.png")
+print("Saved train_actual_vs_pred.png and test_actual_vs_pred.png")
