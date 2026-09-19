@@ -5,6 +5,8 @@ from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPRegressor
 from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
 
 # 1. Load the data
 housing = fetch_california_housing(as_frame=True)
@@ -19,6 +21,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # 3. Fit an MLPRegressor
+ # Increased from (64, 32) to (100, 50) to test whether a larger network improves fit
 model = MLPRegressor(
     hidden_layer_sizes=(64, 32),
     activation="relu",
