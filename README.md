@@ -21,6 +21,17 @@ The pipeline:
 - figures/train_actual_vs_pred.png
 - figures/test_actual_vs_pred.png
  
+## Results
+Model: `MLPRegressor(hidden_layer_sizes=(64, 32), activation="relu", early_stopping=True)`
+
+| Set   | R²    |
+|-------|-------|
+| Train | 0.535 |
+| Test  | 0.514 |
+
+See `figures/train_actual_vs_pred.png` and `figures/test_actual_vs_pred.png` for the
+actual-vs-predicted plots (R² annotated directly on each plot).
+
 ## Partners
 - Lindsey ([@lindsey3291](https://github.com/lindsey3291))
 - Uday ([@UdayAnalyst](https://github.com/UdayAnalyst))
