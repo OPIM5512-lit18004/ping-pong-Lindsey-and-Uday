@@ -19,8 +19,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # 3. Fit an MLPRegressor
+ # Increased from (64, 32) to (100, 50) to test whether a larger network improves fit
 model = MLPRegressor(
-    hidden_layer_sizes=(64, 32),
+    hidden_layer_sizes=(100, 50),
     activation="relu",
     solver="adam",
     early_stopping=True,
