@@ -33,8 +33,11 @@ model.fit(X_train, y_train)
 train_preds = model.predict(X_train)
 test_preds = model.predict(X_test)
 
-print("Train R2:", r2_score(y_train, train_preds))
-print("Test R2:", r2_score(y_test, test_preds))
+train_r2 = r2_score(y_train, train_preds)
+test_r2 = r2_score(y_test, test_preds)
+
+print("Train R2:", train_r2)
+print("Test R2:", test_r2)
 
 # 5. Plot: actual vs predicted (train)
 plt.figure(figsize=(6, 6))
@@ -43,6 +46,13 @@ plt.plot([y_train.min(), y_train.max()], [y_train.min(), y_train.max()], 'r--')
 plt.xlabel("Actual (train)")
 plt.ylabel("Predicted (train)")
 plt.title("Train: Actual vs Predicted Median House Value")
+plt.grid(alpha=0.3)
+plt.text(
+    0.05, 0.95, f"R$^2$ = {train_r2:.3f}",
+    transform=plt.gca().transAxes,
+    fontsize=11, verticalalignment="top",
+    bbox=dict(boxstyle="round", facecolor="white", alpha=0.8)
+)
 plt.savefig("figures/train_actual_vs_pred.png", dpi=150, bbox_inches="tight")
 plt.close()
 
@@ -53,6 +63,13 @@ plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--')
 plt.xlabel("Actual (test)")
 plt.ylabel("Predicted (test)")
 plt.title("Test: Actual vs Predicted Median House Value")
+plt.grid(alpha=0.3)
+plt.text(
+    0.05, 0.95, f"R$^2$ = {test_r2:.3f}",
+    transform=plt.gca().transAxes,
+    fontsize=11, verticalalignment="top",
+    bbox=dict(boxstyle="round", facecolor="white", alpha=0.8)
+)
 plt.savefig("figures/test_actual_vs_pred.png", dpi=150, bbox_inches="tight")
 plt.close()
 
